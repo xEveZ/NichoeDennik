@@ -1,6 +1,4 @@
 NichoeDennik
 ============
 
-provaOpenGL
-
-prova
+provaOpenGL e basta.
