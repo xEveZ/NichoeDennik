@@ -1,0 +1,22 @@
+
+bool collisione(__block *p1,__block *p2)
+{
+    /*
+    *                  Le collisioni
+    *nb. il cubo deve essere più piccolo delle dimensioni del blocco con cui collide.
+    *Ancora in fase di progettazione
+    *                  _______________
+    *               __|               |
+    *              |__|_______________| 
+    *
+    */
+
+    if(((p1->vip.y > p2->vip.y-p2->height && p1->vip.y < p2->vip.y)||(p1->vip.y-p1->height < p2->vip.y && p1->vip.y-p1->height > p2->vip.y-p2->height))
+        && ((p1->vip.x+p1->width > p2->vip.x && p1->vip.x+p1->width < p2->vip.x+p2->width)||(p1->vip.x < p2->vip.x+p2->width && p1->vip.x > p2->vip.x)))
+        return true;
+    else
+        return false;
+
+
+
+}
