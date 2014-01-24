@@ -25,7 +25,8 @@ apreImageAnimation* an_up_sx;
 apreImageAnimation* an_waiting;
 apreAudio* background_audio;
 apreImage* backimg,* ground/**,* shoot*/;
-apreTimer* timer;   
+apreTimer* timer;
+apreImageFilter* f;
 
 bool shooting = false;
 
@@ -113,6 +114,7 @@ int main(int argc,char** argv)
     delete an_up_sx;
     delete an_waiting;
     delete timer;
+    delete f;
 ///distruttore...........................................................................
                                 m-> ~_man();
 ///......................................................................................
@@ -126,6 +128,9 @@ void initOp()
     glAlphaFunc(GL_GREATER,0.0);
     aprePack *pack;
     pack = new aprePack("nemm.aprepack");
+    f=new apreImageFilter();    ///funziona solo con immagini 2D
+    f->setColors(1,0,1,1);
+
 ///roba classe..............................................................................................
 
             an[0]=new apreImageAnimation();
@@ -191,8 +196,8 @@ void initOp()
     ///shoot = new apreImage(new apreTexture(pack->getPack("MMShoting.png"),APRE_IMAGE_PNG));
     ///shoot->setImageHeight(100);
     ///shoot->setImagePos(k,b);
-    //background_audio = new apreAudio(pack->getPack("Kalimba.mp3"));
-    //background_audio->play();
+    background_audio = new apreAudio(pack->getPack("Kalimba.mp3"));
+    background_audio->play();
 
     delete pack;
 
@@ -204,8 +209,9 @@ bool first=true;            ///serve per fare girare la testa al tizio
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
-
+    f->use(true);                ///per disattivarlo use(false)
     backimg->draw();
+    f->use(false);
     ground->draw();
                     ///draw classe...............................................................
                                                 m->draw();
@@ -303,3 +309,4 @@ void display()
         }
     glFlush();
 }
+
