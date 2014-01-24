@@ -1,0 +1,20 @@
+class default_mod{
+protected:
+    point pos;
+    double width;
+    bool anim;
+    int anim_index;
+    double height;
+    apreImage *static_texture;
+    std::vector<apreImageAnimation*> animation;
+public:
+    default_mod(apreTexture *texture,double width,double height);
+    ~default_mod();
+    void setPos(point p);
+    void draw();
+    void addAnimation(apreImageAnimation *anim);
+    void walk();
+    void jump();
+    void fire();
+};
+
