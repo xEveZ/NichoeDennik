@@ -17,3 +17,58 @@ public:
     void jump();
     void fire();
 };
+
+
+default_mod::default_mod(apreTexture *texture,double width,double height)
+{
+    //apreImageAnimation *an;
+    this->width  = width;
+    this->anim = false;
+    this->height = height;
+    this->static_texture = new apreImage(texture);
+    //this->animation.push_back(an);
+}
+
+default_mod::~default_mod()
+{
+    int len;
+
+    delete this->static_texture;
+
+    len = this->animation.size();
+
+    for(int i=0;i<len;i++)
+    {
+        delete this->animation[i];
+    }
+
+    this->animation.clear();
+}
+
+void default_mod::draw()
+{
+    if(this->anim)
+    {
+        this->animation[this->anim_index]->draw();
+    }
+
+
+}
+
+void default_mod::addAnimation(apreImageAnimation *anim)
+{
+    this->animation.push_back(())
+
+
+}
+
+/*
+    void walk();
+    void stopWalk();
+    void jump();
+    void stopJump();
+    void fire();
+    void stopFire();
+};
+
+*/
