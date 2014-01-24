@@ -296,9 +296,9 @@ void display()
             else
             {
                 if(!_left)
-                    an_sx->draw();
-                if(_left)
                     an_dx->draw();
+                if(_left)
+                    an_sx->draw();
             }
         }
     glFlush();
